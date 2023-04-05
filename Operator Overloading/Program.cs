@@ -1,4 +1,4 @@
-﻿namespace OperatorOverloadingEx1
+namespace OperatorOverloadingEx1
 {
     public class Calculator
     {
@@ -6,16 +6,17 @@
 
         // Overload unary operators ++ and -- 
         // Code goes here
-        public static Calculator operator -(Calculator obj)
+        public static Calculator operator --(Calculator obj)
         {
-            obj.number = -obj.number;
+            --obj.number;
+            Console.WriteLine(obj.number);
             return obj;
         }
 
         
         public static Calculator operator ++(Calculator obj)
         {
-            //obj.number++;
+            
             ++obj.number;
             Console.WriteLine(obj.number);
             return obj;
@@ -43,21 +44,19 @@
 
         // Overload Binary Operators + and -
         // Code goes here
-        public static bool operator >(Calculator left, Calculator right)
+        public static Calculator operator +(Calculator obj1, Calculator obj2)
         {
-            bool larger = false;
-            if (left.number > right.number)
-                larger = true;
-            return larger;
+            Calculator Calc3 = new Calculator();
+            Calc3.number = obj1.number + obj2.number;
+            return Calc3;
         }
-        
-        public static bool operator <(Calculator left, Calculator right)
+        public static Calculator operator -(Calculator obj1, Calculator obj2)
         {
-            bool smaller = false;
-            if (left.number < right.number)
-                smaller = true;
-            return smaller;
+            Calculator Calc3 = new Calculator();
+            Calc3.number = obj1.number - obj2.number;
+            return Calc3;
         }
+
 
         static void Main(string[] args)
         {
@@ -81,10 +80,17 @@
                 if (numbers[i].number % 2 == 0)
                 {
                     // Code goes here
+                    
+                    numbers[i]++;
+
+
+
                 }
                 else
                 {
                     // Code goes here
+                    numbers[i]--;
+
                 }
                 Console.Write(" " + numbers[i].number);
             }
@@ -98,6 +104,7 @@
             Console.Write($"Numbers + {numToAdd.number} = ");
 
             // Code goes here
+             
 
             Console.WriteLine();
 
@@ -123,3 +130,4 @@
         }
     }
 }
+
