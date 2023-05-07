@@ -104,9 +104,13 @@ namespace OperatorOverloadingEx1
             Console.Write($"Numbers + {numToAdd.number} = ");
 
             // Code goes here
-             
+            for (int i = 0; i < numbers.Length; i++)
+            {
+                numbers[i] += numToAdd;
+                Console.WriteLine(" " + numbers[i].number);
+            }
 
-            Console.WriteLine();
+                Console.WriteLine();
 
             // random Calculator object to subtract
             Calculator numToSub = new Calculator();
@@ -116,6 +120,13 @@ namespace OperatorOverloadingEx1
             Console.Write($"Numbers - {numToSub.number}= ");
 
             // Code goes here
+            for (int i = 0; i < numbers.Length; i++)
+            {
+                numbers[i] -= numToSub;
+                Console.WriteLine(" " + numbers[i].number);
+            }
+
+            Console.WriteLine();
 
             Console.WriteLine();
 
@@ -127,6 +138,16 @@ namespace OperatorOverloadingEx1
             Console.WriteLine($"Numbers above or below {numToCompare.number}");
 
             // Code goes here
+            for (int i = 0; i < numbers.Length; i++)
+            {
+                if (numbers[i] > numToCompare)
+                    Console.WriteLine(numbers[i].number + "is larger");
+                else if (numbers[i] < numToCompare)
+                    Console.WriteLine(numbers[i].number + "is smaller");
+                else
+                    Console.WriteLine(numbers[i].number + "is equal");
+
+            }
         }
     }
 }
